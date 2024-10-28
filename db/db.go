@@ -6,6 +6,8 @@ import (
 	"os"
 	"github.com/jinzhu/gorm"
 	"github.com/joho/godotenv"
+	_ "database/sql"
+	_ "github.com/lib/pq"
 )
 
 func InitDB() *gorm.DB {
