@@ -1,0 +1,32 @@
+{{ template "header.html" .}}
+
+<div class="container my-3">
+    <div class="card">
+        <div class="card-body p-3">
+            <h1>{{.payload.Title}}</h1>
+
+            <p>Penulis : {{.payload.Author}} | Stok tersedia {{.payload.Stock}}</p>
+
+            <p>{{.payload.Description}}</p>
+
+            <label>
+<form action="/updateBook/{{.payload.ID}}" method="get" >
+    <input type="hidden" name="auth" value="{{.auth}}" /> 
+    <button type="update" class="btn btn-success" >Update</button>
+</form>
+</label>
+
+            <label>
+<form action="/deleteBook/{{.payload.ID}}" method="post" >
+    <input type="hidden" name="auth" value="{{.auth}}" /> 
+    <button type="delete" class="btn btn-danger" >Delete</button>
+</form>
+</label>
+
+        </div>
+    </div>
+</div>
+
+
+
+{{ template "footer.html" .}}
